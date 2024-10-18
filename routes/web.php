@@ -1,7 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PlazaController;
+use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\PuestoController;
+use App\Http\Controllers\ProfileController;
 
 // Menú 1
 
@@ -118,6 +121,39 @@ Route::get('/alumnosc', function(){
 Route::get('/dashboard', function () {
     return view('inicio');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+    Route::get('/Alumnos2.index', [AlumnoController::class, 'index'])->name('Alumnos2.index');    // INDEX
+    
+    Route::get('/Alumnos2.create', [AlumnoController::class, 'create'])->name('Alumnos2.create'); // CREATE
+    Route::post('/Alumnos2.store', [AlumnoController::class, 'store'])->name('Alumnos2.store');       
+    
+    Route::get('/Alumnos2.edit/{alumno}', [AlumnoController::class, 'edit'])->name('Alumnos2.edit');       // EDIT
+    Route::get('/Alumnos2.show/{alumno}', [AlumnoController::class, 'show'])->name('Alumnos2.show');       // VER
+    
+    Route::post('/Alumnos2.destroy/{alumno}', [AlumnoController::class, 'destroy'])->name('Alumnos2.destroy');// DESRTOY
+    Route::post('/Alumnos2.update/{alumno}', [AlumnoController::class, 'update'])->name('Alumnos2.update');//UPDATE  
+
+    Route::get('/Plazas.index', [PlazaController::class, 'index'])->name('Plazas.index');    // INDEX
+    
+    Route::get('/Plazas.create', [PlazaController::class, 'create'])->name('Plazas.create'); // CREATE
+    Route::post('/Plazas.store', [PlazaController::class, 'store'])->name('Plazas.store');       
+    
+    Route::get('/Plazas.edit/{plaza}', [PlazaController::class, 'edit'])->name('Plazas.edit');       // EDIT
+    Route::get('/Plazas.show/{plaza}', [PlazaController::class, 'show'])->name('Plazas.show');       // VER
+    
+    Route::post('/Plazas.destroy/{plaza}', [PlazaController::class, 'destroy'])->name('Plazas.destroy');// DESRTOY
+    Route::post('/Plazas.update/{plaza}', [PlazaController::class, 'update'])->name('Plazas.update');//UPDATE
+
+    Route::get('/Puestos.index', [PuestoController::class, 'index'])->name('Puestos.index');    // INDEX
+    
+    Route::get('/Puestos.create', [PuestoController::class, 'create'])->name('Puestos.create'); // CREATE
+    Route::post('/Puestos.store', [PuestoController::class, 'store'])->name('Puestos.store');       
+    
+    Route::get('/Puestos.edit/{puesto}', [PuestoController::class, 'edit'])->name('Puestos.edit');       // EDIT
+    Route::get('/Puestos.show/{puesto}', [PuestoController::class, 'show'])->name('Puestos.show');       // VER
+    
+    Route::post('/Puestos.destroy/{puesto}', [PuestoController::class, 'destroy'])->name('Puestos.destroy');// DESRTOY
+    Route::post('/Puestos.update/{puesto}', [PuestoController::class, 'update'])->name('Puestos.update');//UPDATE
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

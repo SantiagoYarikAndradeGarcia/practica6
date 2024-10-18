@@ -10,10 +10,10 @@
                     <a href="{{ route('periodos') }}" class="nav-link">Periodos</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a href="{{ route('plazas') }}" class="nav-link">Plazas</a>
+                    <a href="{{ route('Plazas.index') }}" class="nav-link">Plazas</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a href="{{ route('puestos') }}" class="nav-link">Puestos</a>
+                    <a href="{{ route('Puestos.index') }}" class="nav-link">Puestos</a>
                 </li>
                 <li class="nav-item" role="presentation">
                     <a href="{{ route('personal') }}" class="nav-link">Personal</a>
@@ -31,7 +31,7 @@
                     <a href="{{ route('materias') }}" class="nav-link">Materias</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a href="{{ route('alumnosc') }}" class="nav-link">Alumnos</a>
+                    <a href="{{ route('Alumnos2.index') }}" class="nav-link">Alumnos</a>
                 </li>
             </ul>
         </div>
