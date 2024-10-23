@@ -33,7 +33,8 @@
   @endif
   
   @csrf
-    {{-- <div class="row mb-3">
+    
+    <div class="row mb-3">
       <label for="noctrl" class="col-sm-3 col-form-label">Número de Control</label>
       <div class="col-sm-9">
         <input type="text" class="form-control" id="noctrl" name="noctrl" value="{{old('noctrl',$alumno->noctrl)}}" {{$des}}>
@@ -41,8 +42,8 @@
         <p class="text-danger">Error en: {{$message}}</p>
         @enderror
       </div>
-    </div> --}}
-    
+    </div>
+
     <div class="row mb-3">
       <label for="nombre" class="col-sm-3 col-form-label">Nombre</label>
       <div class="col-sm-9">
@@ -95,6 +96,19 @@
         @enderror
         </div>
       </div>
+
+      <div class="row mb-3">
+        <label for="carrera_id">Carrera</label>
+        <select name="carrera_id" id="carrera_id" required >
+            <option value="">Seleccione una Carrera</option>
+            @foreach ($carreras as $carrera)
+                <option value="{{ $carrera->idCarrera }}" 
+                  {{ old('carrera_id', $alumno->carrera_id) == $carrera->idCarrera ? 'selected' : '' }}>
+              {{ $carrera->nombreCarrera }}</option>
+            @endforeach
+        </select>
+      </div>
+
     <button type="submit" class="btn btn-primary">{{$txtbtn}}</button>
     
   </form>

@@ -33,7 +33,7 @@
   @endif
   
   @csrf
-    {{-- <div class="row mb-3">
+    <div class="row mb-3">
       <label for="idPlaza" class="col-sm-3 col-form-label">ID</label>
       <div class="col-sm-9">
         <input type="text" class="form-control" id="idPlaza" name="idPlaza" value="{{old('idPlaza',$plaza->idPlaza)}}" {{$des}}>
@@ -41,7 +41,7 @@
         <p class="text-danger">Error en: {{$message}}</p>
         @enderror
       </div>
-    </div> --}}
+    </div>
     
     <div class="row mb-3">
       <label for="nombre" class="col-sm-3 col-form-label">Nombre</label>

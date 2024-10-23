@@ -19,10 +19,10 @@ class CarreraFactory extends Factory
     {
         $titulo = fake()->unique()->jobTitle();
         return [
-            'idcarrera' => fake()->unique()->bothify("????####"),
-            'nombrecarrera' => $titulo,
-            'nombremediano' => fake()->lexify(str_repeat("?",15)),
-            'nombrecorto' => substr($titulo,0,5),
+            'idCarrera' => fake()->unique()->bothify("???????########"),
+            'nombreCarrera' => $titulo,
+            'nombreMediano' => substr($titulo,0,10),
+            'nombreCorto' => substr($titulo,0,5),
             'depto_id' => Depto::factory()
         ];
     }

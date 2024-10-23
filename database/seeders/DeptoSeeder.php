@@ -2,11 +2,14 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Depto;
 use App\Models\Alumno;
 use App\Models\Carrera;
+use App\Models\Materia;
+use App\Models\Periodo;
+use App\Models\Reticula;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DeptoSeeder extends Seeder
 {
@@ -15,10 +18,23 @@ class DeptoSeeder extends Seeder
      */
     public function run(): void
     {
-        Depto::factory(1)->has(
-            Carrera::factory(3)->has(
-                Alumno::factory(4)
-            )
-        )->create();
+        Depto::factory(3)->create()->each(function ($depto) {
+            Carrera::factory(3)->create([
+                'depto_id' => $depto->idDepto, 
+            ])->each(function ($carrera) {
+                Alumno::factory(3)->create([
+                    'carrera_id' => $carrera->idCarrera, 
+                ]);
+                Reticula::factory(2)->create([
+                    'carrera_id' => $carrera->idCarrera, 
+                ])->each(function ($reticula) {
+                    Materia::factory(2)->create([
+                        'reticula_id' => $reticula->idReticula, 
+                    ]);
+                });
+            });
+        });
+        
+        Periodo::factory(5)->create();
     }
 }

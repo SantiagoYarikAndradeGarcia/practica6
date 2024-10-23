@@ -11,6 +11,7 @@ class PuestoController extends Controller
 
     public function __construct(){
         $this->val=[
+            'idPuesto'    =>['required','min:7'],
             'nombre'    =>['required','min:3'],
             'tipo' =>['required'],
         ];

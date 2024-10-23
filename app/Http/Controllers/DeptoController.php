@@ -7,12 +7,21 @@ use Illuminate\Http\Request;
 
 class DeptoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public $val;
+
+    public function __construct(){
+        $this->val=[
+            'idDepto'    =>['required','min:2','max:2'],
+            'nombreDepto' =>['required','min:8'],
+            'nombreMediano' =>['required'],
+            'nombreCorto' =>['required']
+        ];
+    }
+
     public function index()
     {
-        //
+        $deptos= Depto::paginate(5);
+        return view("Deptos/index",compact("deptos"));
     }
 
     /**
@@ -20,7 +29,12 @@ class DeptoController extends Controller
      */
     public function create()
     {
-        //
+        $deptos= Depto::paginate(5); 
+        $depto=new Depto;
+        $accion='C';
+        $txtbtn='Guardar';
+        $des='';
+        return view("Deptos/frm",compact("deptos",'depto',"accion",'txtbtn','des'));
     }
 
     /**
@@ -28,7 +42,9 @@ class DeptoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $val= $request->validate($this->val);
+        Depto::create($val);
+        return redirect()->route('Deptos.index')->with("mensaje",'se inserto correctamente.');
     }
 
     /**
@@ -36,7 +52,11 @@ class DeptoController extends Controller
      */
     public function show(Depto $depto)
     {
-        //
+        $deptos=Depto::Paginate(5);
+        $accion='D';
+        $txtbtn='confirmar la eliminacion';
+        $des='disabled';
+        return view("Deptos.show",compact('deptos','depto','accion','txtbtn','des'));
     }
 
     /**
@@ -44,7 +64,11 @@ class DeptoController extends Controller
      */
     public function edit(Depto $depto)
     {
-        //
+        $deptos=Depto::Paginate(5);
+        $accion='E';
+        $txtbtn='actualizar';
+        $des='';
+        return view("Deptos.frm",compact('deptos','depto','accion','txtbtn','des'));
     }
 
     /**
@@ -52,7 +76,9 @@ class DeptoController extends Controller
      */
     public function update(Request $request, Depto $depto)
     {
-        //
+        $val= $request->validate($this->val);
+        $depto->update($val);
+        return redirect()->route('Deptos.index');
     }
 
     /**
@@ -60,6 +86,7 @@ class DeptoController extends Controller
      */
     public function destroy(Depto $depto)
     {
-        //
+        $depto->delete();
+        return redirect()->route('Deptos.index');
     }
 }

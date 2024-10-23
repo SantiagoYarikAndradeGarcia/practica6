@@ -18,10 +18,10 @@ class DeptoFactory extends Factory
     {
         $titulo = fake()->unique()->jobTitle();
         return [
-            'iddepto' => fake()->unique()->bothify("?#"),
-            'nombredepto' => $titulo,
-            'nombremediano' => fake()->unique()->lexify(str_repeat("?",15)),
-            'nombrecorto' => substr($titulo,0,5)
+            'idDepto' => fake()->unique()->bothify("?#"),
+            'nombreDepto' => $titulo,
+            'nombreMediano' => substr($titulo,0,10), 
+            'nombreCorto' => substr($titulo,0,5)
         ];
     }
 }

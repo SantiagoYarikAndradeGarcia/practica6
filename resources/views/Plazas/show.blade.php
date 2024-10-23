@@ -15,6 +15,13 @@
   @csrf 
   
     <div class="row mb-3">
+      <label for="idPlaza" class="col-sm-3 col-form-label">ID</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="idPlaza" name="idPlaza" disabled value="{{$plaza->idPlaza}}">
+      </div>
+    </div>
+
+    <div class="row mb-3">
       <label for="nombre" class="col-sm-3 col-form-label">Nombre</label>
       <div class="col-sm-9">
         <input type="text" class="form-control" id="nombre" name="nombre" disabled value="{{$plaza->nombre}}">

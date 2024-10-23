@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alumno;
+use App\Models\Carrera;
 use Illuminate\Http\Request;
 
 class AlumnoController extends Controller
@@ -11,27 +12,32 @@ class AlumnoController extends Controller
 
     public function __construct(){
         $this->val=[
+            'noctrl'    =>['required','min:8','max:8'],
             'nombre'    =>['required','min:3'],
             'apellidoP' =>['required'],
             'apellidoM' =>['required'],
-            'sexo'     =>'required'
+            'sexo'     =>'required',
+            'carrera_id' =>['required']
+
         ];
     }
 
     public function index()
     {
-        $alumnos= Alumno::paginate(5);
-        return view("Alumnos2/index",compact("alumnos"));
+        $alumnos= Alumno::with('carrera')->paginate(5);
+        $carreras = Carrera::get();
+        return view("Alumnos2/index",compact("alumnos","carreras"));
     }
 
     public function create()
     {
+        $carreras = Carrera::all();
         $alumnos= Alumno::paginate(5); 
         $alumno=new Alumno;
         $accion='C';
         $txtbtn='Guardar';
         $des='';
-        return view("Alumnos2/frm",compact("alumnos",'alumno',"accion",'txtbtn','des'));
+        return view("Alumnos2/frm",compact("alumnos",'alumno',"carreras","accion",'txtbtn','des'));
     }
 
    
@@ -46,22 +52,23 @@ class AlumnoController extends Controller
  
     public function show(Alumno $alumno)
     {
+        $carreras = Carrera::all();
         $alumnos=Alumno::Paginate(5);
         $accion='D';
         $txtbtn='confirmar la eliminacion';
         $des='disabled';
-        return view("Alumnos2.show",compact('alumnos','alumno','accion','txtbtn','des'));
+        return view("Alumnos2.show",compact('alumnos','alumno','carreras','accion','txtbtn','des'));
     }
 
   
     public function edit(Alumno $alumno)
     {   
-        
+        $carreras = Carrera::all();
         $alumnos=Alumno::Paginate(5);
         $accion='E';
         $txtbtn='actualizar';
         $des='';
-        return view("Alumnos2.frm",compact('alumnos','alumno','accion','txtbtn','des'));
+        return view("Alumnos2.frm",compact('alumnos','alumno','carreras','accion','txtbtn','des'));
     }
 
   

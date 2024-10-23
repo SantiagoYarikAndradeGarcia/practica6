@@ -12,12 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('alumnos', function (Blueprint $table) {
-            $table->bigIncrements('noctrl', 8)->primary();
+            $table->string('noctrl', 8)->primary();
             $table->string("nombre", 50);
             $table->string("apellidop", 50);
             $table->string("apellidom", 50);
             $table->string("sexo", 1);
-            // $table->foreignId('carrera_id')->constrained();
+            $table->string('carrera_id', 15);
+            $table->foreign('carrera_id')
+                ->references('idCarrera')
+                ->on('carreras')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -12,12 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('carreras', function (Blueprint $table) {
-            $table->id();
-            $table->string('idcarrera',15)->unique();
-            $table->string('nombrecarrera',200)->unique();
-            $table->string('nombremediano',50)->unique();
-            $table->string('nombrecorto',5)->unique();
-            $table->foreignId('depto_id')->constrained();
+            $table->string('idCarrera',15)->primary();
+            $table->string('nombreCarrera',200)->unique();
+            $table->string('nombreMediano',50);
+            $table->string('nombreCorto',5);
+            $table->string('depto_id', 2);
+            $table->foreign('depto_id')
+                ->references('idDepto')
+                ->on('deptos')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

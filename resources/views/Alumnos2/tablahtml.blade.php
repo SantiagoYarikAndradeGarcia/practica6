@@ -15,6 +15,7 @@
                 <th scope="col">Apellido Paterno</th>
                 <th scope="col">Apellido Materno</th>
                 <th scope="col">Sexo</th>
+                <th scope="col">Carrera</th>
                 <th>EDITAR</th>
                 <th>ELIMINAR</th>
                 <th>VER</th>
@@ -27,7 +28,8 @@
                 <td>{{ $alumno->nombre }}  </td>
                 <td>{{ $alumno->apellidop }}</td>
                 <td>{{ $alumno->apellidom }}</td>
-                <td>{{ $alumno->sexo }}</td>
+                <td>{{ $alumno->sexo == 'M' ? 'Masculino' : ($alumno->sexo == 'F' ? 'Femenino' : 'Desconocido') }}</td>
+                <td>{{ $alumno->carrera->nombreCarrera }}</td>
                 <td><a href="{{route('Alumnos2.edit',$alumno->noctrl)}}" class="btn button btn-success">Editar</a></td>
                 <td><a href="{{route('Alumnos2.show',$alumno->noctrl)}}" class="btn button btn-danger">Eliminar</a></td>
                 <td><a href="{{route('Alumnos2.show',$alumno->noctrl)}}" class="btn button btn-primary">Ver</a></td>

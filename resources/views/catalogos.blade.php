@@ -7,7 +7,7 @@
         <div class="col-md-2">
             <ul class="nav nav-tabs flex-column" id="navId" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a href="{{ route('periodos') }}" class="nav-link">Periodos</a>
+                    <a href="{{ route('Periodos.index') }}" class="nav-link">Periodos</a>
                 </li>
                 <li class="nav-item" role="presentation">
                     <a href="{{ route('Plazas.index') }}" class="nav-link">Plazas</a>
@@ -19,16 +19,16 @@
                     <a href="{{ route('personal') }}" class="nav-link">Personal</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a href="{{ route('deptos') }}" class="nav-link">Deptos</a>
+                    <a href="{{ route('Deptos.index') }}" class="nav-link">Deptos</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a href="{{ route('carreras') }}" class="nav-link">Carreras</a>
+                    <a href="{{ route('Carreras.index') }}" class="nav-link">Carreras</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a href="{{ route('reticulas') }}" class="nav-link">Retículas</a>
+                    <a href="{{ route('Reticulas.index') }}" class="nav-link">Retículas</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a href="{{ route('materias') }}" class="nav-link">Materias</a>
+                    <a href="{{ route('Materias.index') }}" class="nav-link">Materias</a>
                 </li>
                 <li class="nav-item" role="presentation">
                     <a href="{{ route('Alumnos2.index') }}" class="nav-link">Alumnos</a>

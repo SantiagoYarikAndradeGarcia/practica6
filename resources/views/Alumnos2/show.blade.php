@@ -15,6 +15,13 @@
   @csrf 
   
     <div class="row mb-3">
+      <label for="noctrl" class="col-sm-3 col-form-label">Número de Control</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="noctrl" name="noctrl" disabled value="{{$alumno->noctrl}}">
+      </div>
+    </div>
+
+    <div class="row mb-3">
       <label for="nombre" class="col-sm-3 col-form-label">Nombre</label>
       <div class="col-sm-9">
         <input type="text" class="form-control" id="nombre" name="nombre" disabled value="{{$alumno->nombre}}">
@@ -37,19 +44,15 @@
 
       <div class="row mb-3">
         <label for="sexo" class="col-sm-3 col-form-label">Sexo</label>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="sexo" id="sexoM" value="M"
-              {{ old('sexo', $alumno->sexo) == 'M' ? 'checked' : '' }} {{$des}}>
-          <label class="form-check-label" for="sexoM">
-              Masculino
-          </label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="sexo" name="sexo" disabled value="{{ $alumno->sexo == 'M' ? 'Masculino' : ($alumno->sexo  == 'F' ? 'Femenino' : 'Desconocido') }}">
         </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="sexo" id="sexoF" value="F"
-                {{ old('sexo', $alumno->sexo) == 'F' ? 'checked' : '' }} {{$des}}>
-            <label class="form-check-label" for="sexoF">
-                Femenino
-            </label>
+      </div>
+
+      <div class="row mb-3">
+        <label for="nombreCarrera" class="col-sm-3 col-form-label">Carrera</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="nombreCarrera" name="nombreCarrera" disabled value="{{$alumno->carrera->nombreCarrera}}">
         </div>
       </div>
     <button type="submit" class="btn btn-danger">Confirma la Eliminacion</button>

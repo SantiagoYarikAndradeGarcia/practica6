@@ -11,7 +11,7 @@ class PlazaController extends Controller
 
     public function __construct(){
         $this->val=[
-            // 'idPlaza'    =>['required','min:3'],
+            'idPlaza'    =>['required','min:7'],
             'nombre'    =>['required','min:3']
         ];
     }
