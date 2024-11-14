@@ -12,12 +12,13 @@ class MateriaController extends Controller
 
     public function __construct(){
         $this->val=[
-            'idMateria'    =>['required','min:10','max:10'],
+            // 'idMateria'    =>['required','min:10','max:10'],
             'nombreMateria'    =>['required'],
             'nombreMediano' =>['required'],
             'nombreCorto' =>['required'],
             'nivel' =>['required'],
             'modalidad' =>['required'],
+            'semestre' =>['required'],
             'reticula_id' =>['required']
         ];
     }
@@ -40,7 +41,8 @@ class MateriaController extends Controller
         $accion='C';
         $txtbtn='Guardar';
         $des='';
-        return view("Materias/frm",compact("materias",'materia',"reticulas","accion",'txtbtn','des'));
+        $iddes='';
+        return view("Materias/frm",compact("materias",'materia',"reticulas","accion",'txtbtn','des','iddes'));
     }
 
     /**
@@ -76,7 +78,8 @@ class MateriaController extends Controller
         $accion='E';
         $txtbtn='actualizar';
         $des='';
-        return view("Materias.frm",compact('materias','materia','reticulas','accion','txtbtn','des'));
+        $iddes='disabled';
+        return view("Materias.frm",compact('materias','materia','reticulas','accion','txtbtn','des','iddes'));
     }
 
     /**

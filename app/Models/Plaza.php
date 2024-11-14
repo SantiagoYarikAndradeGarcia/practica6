@@ -4,21 +4,23 @@ namespace App\Models;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Plaza extends Model
 {
     use HasFactory;
-    protected $fillable =['idPlaza','nombre'];
+    protected $fillable =['idPlaza','nombreplaza'];
 
-    protected $table = 'plazas'; // Nombre de la tabla
-    protected $primaryKey = 'idPlaza'; // Cambia 'id' por tu clave primaria
-
-    // Si no es autoincremental, agrega esto también:
-    public $incrementing = false;
+    protected $table = 'plazas'; 
+    // protected $primaryKey = 'idPlaza';
+    // public $incrementing = false;
     
-    // Si no es de tipo integer, especifica el tipo de dato:
-    protected $keyType = 'string';
+    // protected $keyType = 'string';
+
+    public function personal_plazas():HasMany{
+        return $this->hasMany(PersonalPlaza::class);
+    }
 
     // protected static function boot()
     //  {

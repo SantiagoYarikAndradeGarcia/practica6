@@ -13,6 +13,8 @@ class PeriodoSeeder extends Seeder
      */
     public function run(): void
     {
-        Periodo::factory(5)->create();
+        foreach (range(1, 7) as $i) {
+            Periodo::factory()->create(); 
+        }
     }
 }

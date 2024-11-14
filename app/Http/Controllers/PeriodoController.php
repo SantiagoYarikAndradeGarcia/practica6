@@ -11,7 +11,7 @@ class PeriodoController extends Controller
 
     public function __construct(){
         $this->val=[
-            'idPeriodo'    =>['required','min:5','max:5'],
+            // 'idPeriodo'    =>['required','min:5','max:5'],
             'periodo' =>['required'],
             'descCorta' =>['required'],
             'fechaIni' =>['required'],
@@ -35,7 +35,8 @@ class PeriodoController extends Controller
         $accion='C';
         $txtbtn='Guardar';
         $des='';
-        return view("Periodos/frm",compact("periodos",'periodo',"accion",'txtbtn','des'));
+        $iddes='';
+        return view("Periodos/frm",compact("periodos",'periodo',"accion",'txtbtn','des','iddes'));
     }
 
     /**
@@ -69,7 +70,8 @@ class PeriodoController extends Controller
         $accion='E';
         $txtbtn='actualizar';
         $des='';
-        return view("Periodos.frm",compact('periodos','periodo','accion','txtbtn','des'));
+        $iddes='disabled';
+        return view("Periodos.frm",compact('periodos','periodo','accion','txtbtn','des','iddes'));
     }
 
     /**

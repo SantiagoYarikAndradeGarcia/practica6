@@ -10,10 +10,16 @@
 
 {{-- CONTENIDO2 --}}
 @section('contenido2')
-<h1>VER TDOOS LOS DATOS</h1>
+<h1>VER TODOS LOS DATOS</h1>
 <form action="{{route('Alumnos2.destroy',$alumno)}}" method="POST">
   @csrf 
-  
+    <div class="row mb-3">
+      <label for="id" class="col-sm-3 col-form-label">ID</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="id" name="id" disabled value="{{$alumno->id}}">
+      </div>
+    </div>
+
     <div class="row mb-3">
       <label for="noctrl" class="col-sm-3 col-form-label">Número de Control</label>
       <div class="col-sm-9">
@@ -46,6 +52,13 @@
         <label for="sexo" class="col-sm-3 col-form-label">Sexo</label>
         <div class="col-sm-9">
           <input type="text" class="form-control" id="sexo" name="sexo" disabled value="{{ $alumno->sexo == 'M' ? 'Masculino' : ($alumno->sexo  == 'F' ? 'Femenino' : 'Desconocido') }}">
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <label for="email" class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="email" name="email" disabled value="{{$alumno->email}} ">
         </div>
       </div>
 

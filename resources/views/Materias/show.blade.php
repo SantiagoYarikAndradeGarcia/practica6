@@ -15,9 +15,9 @@
   @csrf 
   
     <div class="row mb-3">
-      <label for="idMateria" class="col-sm-3 col-form-label">ID</label>
+      <label for="id" class="col-sm-3 col-form-label">ID</label>
       <div class="col-sm-9">
-        <input type="text" class="form-control" id="idMateria" name="idMateria" disabled value="{{$materia->idMateria}}">
+        <input type="text" class="form-control" id="id" name="id" disabled value="{{$materia->id}}">
       </div>
     </div>
 
@@ -57,9 +57,16 @@
     </div>
 
     <div class="row mb-3">
+      <label for="semestre" class="col-sm-3 col-form-label">Semestre</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="semestre" name="semestre" disabled value="{{ $materia->semestre}}">
+      </div>
+    </div>
+
+    <div class="row mb-3">
       <label for="idReticula" class="col-sm-3 col-form-label">Retícula</label>
       <div class="col-sm-9">
-        <input type="text" class="form-control" id="idReticula" name="idReticula" disabled value="{{$materia->reticula->idReticula}}">
+        <input type="text" class="form-control" id="idReticula" name="idReticula" disabled value="{{$materia->reticula->descripcion}}">
       </div>
     </div>
 

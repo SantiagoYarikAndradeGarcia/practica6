@@ -38,7 +38,8 @@ class CarreraController extends Controller
         $accion='C';
         $txtbtn='Guardar';
         $des='';
-        return view("Carreras/frm",compact("carreras",'carrera',"deptos","accion",'txtbtn','des'));
+        $iddes='';
+        return view("Carreras/frm",compact("carreras",'carrera',"deptos","accion",'txtbtn','des','iddes'));
     }
 
     /**
@@ -74,7 +75,8 @@ class CarreraController extends Controller
         $accion='E';
         $txtbtn='actualizar';
         $des='';
-        return view("Carreras.frm",compact('carreras','carrera','deptos','accion','txtbtn','des'));
+        $iddes='disabled';
+        return view("Carreras.frm",compact('carreras','carrera','deptos','accion','txtbtn','des','iddes'));
     }
 
     /**

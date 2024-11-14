@@ -16,7 +16,8 @@
                 <th scope="col">Nombre Corto</th>
                 <th scope="col">Nivel</th>
                 <th scope="col">Modalidad</th>
-                <th scope="col">Reticula</th>
+                <th scope="col">Semestre</th>
+                <th scope="col">Retícula</th>
                 <th>EDITAR</th>
                 <th>ELIMINAR</th>
                 <th>VER</th>
@@ -25,16 +26,17 @@
         <tbody>
             @foreach ($materias as $materia)
             <tr>
-                <td scope="row"> {{ $materia->idMateria }}  </td>
+                <td scope="row"> {{ $materia->id }}  </td>
                 <td>{{ $materia->nombreMateria }}  </td>
                 <td>{{ $materia->nombreMediano }}  </td>
                 <td>{{ $materia->nombreCorto }}  </td>
                 <td>{{ $materia->nivel == 'L' ? 'Licenciatura' : ($materia->nivel == 'M' ? 'Maestría' : 'Desconocido') }}</td>
                 <td>{{ $materia->modalidad == 'A' ? 'A distancia' : ($materia->modalidad == 'E' ? 'Escolarizada' : 'Desconocido') }}</td>
-                <td>{{ $materia->reticula->idReticula }}  </td>
-                <td><a href="{{route('Materias.edit',$materia->idMateria)}}" class="btn button btn-success">Editar</a></td>
-                <td><a href="{{route('Materias.show',$materia->idMateria)}}" class="btn button btn-danger">Eliminar</a></td>
-                <td><a href="{{route('Materias.show',$materia->idMateria)}}" class="btn button btn-primary">Ver</a></td>
+                <td>{{ $materia->semestre }}  </td>
+                <td>{{ $materia->reticula->descripcion }}  </td>
+                <td><a href="{{route('Materias.edit',$materia->id)}}" class="btn button btn-success">Editar</a></td>
+                <td><a href="{{route('Materias.show',$materia->id)}}" class="btn button btn-danger">Eliminar</a></td>
+                <td><a href="{{route('Materias.show',$materia->id)}}" class="btn button btn-primary">Ver</a></td>
             </tr>
             @endforeach
         </tbody>

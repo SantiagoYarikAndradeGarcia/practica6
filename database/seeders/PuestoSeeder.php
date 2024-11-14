@@ -13,6 +13,8 @@ class PuestoSeeder extends Seeder
      */
     public function run(): void
     {
-        Puesto::factory(10)->create();
+        foreach (range(1, 10) as $i) {
+            Puesto::factory()->create();
+        }
     }
 }

@@ -13,9 +13,16 @@
 <h1>VER TODOS LOS DATOS</h1>
 <form action="{{route('Carreras.destroy',$carrera)}}" method="POST">
   @csrf 
-  
+
     <div class="row mb-3">
-      <label for="idCarrera" class="col-sm-3 col-form-label">ID</label>
+      <label for="id" class="col-sm-3 col-form-label">ID</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="id" name="id" disabled value="{{$carrera->id}}">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="idCarrera" class="col-sm-3 col-form-label">Id carrera</label>
       <div class="col-sm-9">
         <input type="text" class="form-control" id="idCarrera" name="idCarrera" disabled value="{{$carrera->idCarrera}}">
       </div>

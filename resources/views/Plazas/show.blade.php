@@ -10,21 +10,28 @@
 
 {{-- CONTENIDO2 --}}
 @section('contenido2')
-<h1>VER TDOOS LOS DATOS</h1>
+<h1>VER TODOS LOS DATOS</h1>
 <form action="{{route('Plazas.destroy',$plaza)}}" method="POST">
   @csrf 
   
     <div class="row mb-3">
-      <label for="idPlaza" class="col-sm-3 col-form-label">ID</label>
+      <label for="id" class="col-sm-3 col-form-label">ID</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="id" name="id" disabled value="{{$plaza->id}}">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <label for="idPlaza" class="col-sm-3 col-form-label">Id plaza</label>
       <div class="col-sm-9">
         <input type="text" class="form-control" id="idPlaza" name="idPlaza" disabled value="{{$plaza->idPlaza}}">
       </div>
     </div>
 
     <div class="row mb-3">
-      <label for="nombre" class="col-sm-3 col-form-label">Nombre</label>
+      <label for="nombreplaza" class="col-sm-3 col-form-label">Nombre</label>
       <div class="col-sm-9">
-        <input type="text" class="form-control" id="nombre" name="nombre" disabled value="{{$plaza->nombre}}">
+        <input type="text" class="form-control" id="nombreplaza" name="nombreplaza" disabled value="{{$plaza->nombreplaza}}">
       </div>
     </div>
 

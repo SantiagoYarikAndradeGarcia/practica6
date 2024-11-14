@@ -11,12 +11,14 @@ class Depto extends Model
     use HasFactory;
     protected $fillable =['idDepto','nombreDepto','nombreMediano','nombreCorto'];
     protected $table = 'deptos';
-    protected $primaryKey = 'idDepto'; 
-
-    public $incrementing = false;
-
+    // protected $primaryKey = 'idDepto'; 
+    // public $incrementing = false;
 
     public function carreras():HasMany{
         return $this->hasMany(Carrera::class);
+    }
+
+    public function personals():HasMany{
+        return $this->hasMany(Personal::class);
     }
 }

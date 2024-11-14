@@ -15,14 +15,24 @@ class PlazaFactory extends Factory
      *
      * @return array<string, mixed>
      */
-
-     
-     
     public function definition(): array
     {
-        return [
-            'idPlaza' => fake()->bothify("???####"),
-            'nombre' => fake()->jobTitle()
+        static $indice=-1;
+        $indice++;
+        $pla = [
+            ['E3817','Plaza E3817'],
+            ['E3815','Plaza E3815'],
+            ['E3717','Plaza E3717'],
+            ['E3617','Plaza E3617'],
+            ['E3520','Plaza E3520'],
         ];
+        return [
+            'idPlaza'=>$pla[$indice][0],
+            'nombreplaza'=>$pla[$indice][1],
+        ];
+        // return [
+        //     'idPlaza' => fake()->bothify("???####"),
+        //     'nombreplaza' => fake()->jobTitle()
+        // ];
     }
 }

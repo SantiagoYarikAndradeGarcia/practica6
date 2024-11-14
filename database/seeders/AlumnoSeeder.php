@@ -13,6 +13,8 @@ class AlumnoSeeder extends Seeder
      */
     public function run(): void
     {
-        Alumno::factory(5)->create();
+        foreach (range(1, 20) as $i) {
+            Alumno::factory()->create();  
+        }
     }
 }

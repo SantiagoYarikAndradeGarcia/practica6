@@ -24,7 +24,7 @@
 
   @elseif ($accion == 'E')
   <h1>EDITANDO FRM</h1> 
-  <form action="{{route('Materias.update',$materia->idMateria)}}" method="POST">
+  <form action="{{route('Materias.update',$materia->id)}}" method="POST">
 
     @elseif ($accion=='D')
     <h1>PARA ELIMINAR</h1> 
@@ -33,15 +33,17 @@
   @endif
   
   @csrf
-    <div class="row mb-3">
-      <label for="idMateria" class="col-sm-3 col-form-label">ID</label>
-      <div class="col-sm-9">
-        <input type="text" class="form-control" id="idMateria" name="idMateria" value="{{old('idMateria',$materia->idMateria)}}" {{$des}}>
-        @error('idMateria')
-        <p class="text-danger">Error en: {{$message}}</p>
-        @enderror
+    @if ($accion == 'E')
+      <div class="row mb-3">
+        <label for="id" class="col-sm-3 col-form-label">ID</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="id" name="id" value="{{old('id',$materia->id)}}" {{$des}} {{$iddes}}>
+          @error('id')
+          <p class="text-danger">Error en: {{$message}}</p>
+          @enderror
+        </div>
       </div>
-    </div>
+    @endif
     
     <div class="row mb-3">
       <label for="nombreMateria" class="col-sm-3 col-form-label">Nombre Completo</label>
@@ -120,13 +122,23 @@
     </div>
 
     <div class="row mb-3">
+      <label for="semestre" class="col-sm-3 col-form-label">Semestre</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="semestre" name="semestre" value="{{old('semestre',$materia->semestre)}}" {{$des}}>
+        @error('semestre')
+        <p class="text-danger">Error en: {{$message}}</p>
+        @enderror
+      </div>
+    </div>
+
+    <div class="row mb-3">
       <label for="reticula_id">Retícula</label>
       <select name="reticula_id" id="reticula_id" required >
           <option value="">Seleccione una Retícula</option>
           @foreach ($reticulas as $reticula)
-              <option value="{{ $reticula->idReticula }}" 
-                {{ old('reticula_id', $materia->reticula_id) == $reticula->idReticula ? 'selected' : '' }}>
-            {{ $reticula->idReticula }}</option>
+              <option value="{{ $reticula->id }}" 
+                {{ old('reticula_id', $materia->reticula_id) == $reticula->id ? 'selected' : '' }}>
+            {{ $reticula->descripcion }}</option>
           @endforeach
       </select>
     </div>

@@ -28,13 +28,13 @@
         <tbody>
             @foreach ($reticulas as $reticula)
             <tr>
-                <td scope="row"> {{ $reticula->idReticula }}  </td>
+                <td scope="row"> {{ $reticula->id }}  </td>
                 <td>{{ $reticula->descripcion }}  </td>
                 <td><input type="date" class="form-control" id="fechaEnVigor2" name="fechaEnVigor" disabled value="{{ $reticula->fechaEnVigor }}"></td>
                 <td>{{ $reticula->carrera->nombreCarrera }}</td>
-                <td><a href="{{route('Reticulas.edit',$reticula->idReticula)}}" class="btn button btn-success">Editar</a></td>
-                <td><a href="{{route('Reticulas.show',$reticula->idReticula)}}" class="btn button btn-danger">Eliminar</a></td>
-                <td><a href="{{route('Reticulas.show',$reticula->idReticula)}}" class="btn button btn-primary">Ver</a></td>
+                <td><a href="{{route('Reticulas.edit',$reticula->id)}}" class="btn button btn-success">Editar</a></td>
+                <td><a href="{{route('Reticulas.show',$reticula->id)}}" class="btn button btn-danger">Eliminar</a></td>
+                <td><a href="{{route('Reticulas.show',$reticula->id)}}" class="btn button btn-primary">Ver</a></td>
             </tr>
             @endforeach
         </tbody>

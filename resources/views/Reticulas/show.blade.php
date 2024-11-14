@@ -15,9 +15,9 @@
   @csrf 
   
     <div class="row mb-3">
-      <label for="idReticula" class="col-sm-3 col-form-label">ID</label>
+      <label for="id" class="col-sm-3 col-form-label">ID</label>
       <div class="col-sm-9">
-        <input type="text" class="form-control" id="idReticula" name="idReticula" disabled value="{{$reticula->idReticula}}">
+        <input type="text" class="form-control" id="id" name="id" disabled value="{{$reticula->id}}">
       </div>
     </div>
 

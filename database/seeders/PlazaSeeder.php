@@ -13,6 +13,8 @@ class PlazaSeeder extends Seeder
      */
     public function run(): void
     {
-        Plaza::factory(10)->create();
+        foreach (range(1, 5) as $i) {
+            Plaza::factory()->create();
+        }
     }
 }

@@ -11,6 +11,7 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
+                <th scope="col">Id Plaza</th>
                 <th scope="col">Nombre</th>
                 <th>EDITAR</th>
                 <th>ELIMINAR</th>
@@ -20,11 +21,12 @@
         <tbody>
             @foreach ($plazas as $plaza)
             <tr>
-                <td scope="row"> {{ $plaza->idPlaza }}  </td>
-                <td>{{ $plaza->nombre }}  </td>
-                <td><a href="{{route('Plazas.edit',$plaza->idPlaza)}}" class="btn button btn-success">Editar</a></td>
-                <td><a href="{{route('Plazas.show',$plaza->idPlaza)}}" class="btn button btn-danger">Eliminar</a></td>
-                <td><a href="{{route('Plazas.show',$plaza->idPlaza)}}" class="btn button btn-primary">Ver</a></td>
+                <td scope="row"> {{ $plaza->id }}  </td>
+                <td>{{ $plaza->idPlaza }}  </td>
+                <td>{{ $plaza->nombreplaza }}  </td>
+                <td><a href="{{route('Plazas.edit',$plaza->id)}}" class="btn button btn-success">Editar</a></td>
+                <td><a href="{{route('Plazas.show',$plaza->id)}}" class="btn button btn-danger">Eliminar</a></td>
+                <td><a href="{{route('Plazas.show',$plaza->id)}}" class="btn button btn-primary">Ver</a></td>
             </tr>
             @endforeach
         </tbody>

@@ -11,8 +11,8 @@ class PuestoController extends Controller
 
     public function __construct(){
         $this->val=[
-            'idPuesto'    =>['required','min:7'],
-            'nombre'    =>['required','min:3'],
+            'idPuesto'    =>['required'],
+            'nombre'    =>['required'],
             'tipo' =>['required'],
         ];
     }
@@ -21,7 +21,6 @@ class PuestoController extends Controller
     {
         $puestos= Puesto::paginate(5);
         return view("Puestos/index",compact("puestos"));
-
     }
 
 
@@ -32,7 +31,8 @@ class PuestoController extends Controller
         $accion='C';
         $txtbtn='Guardar';
         $des='';
-        return view("Puestos/frm",compact("puestos",'puesto',"accion",'txtbtn','des'));
+        $iddes='';
+        return view("Puestos/frm",compact("puestos",'puesto',"accion",'txtbtn','des','iddes'));
     }
 
  
@@ -62,13 +62,15 @@ class PuestoController extends Controller
         $accion='E';
         $txtbtn='actualizar';
         $des='';
-        return view("Puestos.frm",compact('puestos','puesto','accion','txtbtn','des'));
+        $iddes='disabled';
+        return view("Puestos.frm",compact('puestos','puesto','accion','txtbtn','des','iddes'));
     }
 
     
     public function update(Request $request, Puesto $puesto)
     {
-        $puesto->update($request->all());
+        $val= $request->validate($this->val);
+        $puesto->update($val);
         return redirect()->route('Puestos.index');
     }
 

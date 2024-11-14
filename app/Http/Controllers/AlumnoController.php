@@ -16,9 +16,9 @@ class AlumnoController extends Controller
             'nombre'    =>['required','min:3'],
             'apellidoP' =>['required'],
             'apellidoM' =>['required'],
-            'sexo'     =>'required',
+            'sexo'     =>['required'],
+            'email'     =>['required'],
             'carrera_id' =>['required']
-
         ];
     }
 
@@ -37,7 +37,8 @@ class AlumnoController extends Controller
         $accion='C';
         $txtbtn='Guardar';
         $des='';
-        return view("Alumnos2/frm",compact("alumnos",'alumno',"carreras","accion",'txtbtn','des'));
+        $iddes='';
+        return view("Alumnos2/frm",compact("alumnos",'alumno',"carreras","accion",'txtbtn','des','iddes'));
     }
 
    
@@ -68,7 +69,8 @@ class AlumnoController extends Controller
         $accion='E';
         $txtbtn='actualizar';
         $des='';
-        return view("Alumnos2.frm",compact('alumnos','alumno','carreras','accion','txtbtn','des'));
+        $iddes='disabled';
+        return view("Alumnos2.frm",compact('alumnos','alumno','carreras','accion','txtbtn','des','iddes'));
     }
 
   

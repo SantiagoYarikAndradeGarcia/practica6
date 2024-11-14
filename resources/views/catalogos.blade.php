@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Menú vertical en la parte izquierda -->
-        <div class="col-md-2">
+        <div class="col-md-1">
             <ul class="nav nav-tabs flex-column" id="navId" role="tablist">
                 <li class="nav-item" role="presentation">
                     <a href="{{ route('Periodos.index') }}" class="nav-link">Periodos</a>
@@ -16,7 +16,7 @@
                     <a href="{{ route('Puestos.index') }}" class="nav-link">Puestos</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a href="{{ route('personal') }}" class="nav-link">Personal</a>
+                    <a href="{{ route('Personales.index') }}" class="nav-link">Personal</a>
                 </li>
                 <li class="nav-item" role="presentation">
                     <a href="{{ route('Deptos.index') }}" class="nav-link">Deptos</a>
@@ -32,6 +32,18 @@
                 </li>
                 <li class="nav-item" role="presentation">
                     <a href="{{ route('Alumnos2.index') }}" class="nav-link">Alumnos</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a href="{{ route('PersonalPlazas.index') }}" class="nav-link">Personal Plazas</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a href="{{ route('Edificios.index') }}" class="nav-link">Edificios</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a href="{{ route('Lugares.index') }}" class="nav-link">Lugares</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a href="{{ route('Horas.index') }}" class="nav-link">Horas</a>
                 </li>
             </ul>
         </div>

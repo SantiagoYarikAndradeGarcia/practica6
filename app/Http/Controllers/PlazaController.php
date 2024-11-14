@@ -11,8 +11,8 @@ class PlazaController extends Controller
 
     public function __construct(){
         $this->val=[
-            'idPlaza'    =>['required','min:7'],
-            'nombre'    =>['required','min:3']
+            'idPlaza'    =>['required'],
+            'nombreplaza'    =>['required']
         ];
     }
     
@@ -32,7 +32,8 @@ class PlazaController extends Controller
         $accion='C';
         $txtbtn='Guardar';
         $des='';
-        return view("Plazas/frm", compact("plazas","plaza","accion",'txtbtn','des'));
+        $iddes='';
+        return view("Plazas/frm", compact("plazas","plaza","accion",'txtbtn','des','iddes'));
     }
 
     /**
@@ -66,7 +67,8 @@ class PlazaController extends Controller
         $accion='E';
         $txtbtn='actualizar';
         $des='';
-        return view("Plazas.frm",compact('plazas','plaza','accion','txtbtn','des'));
+        $iddes='disabled';
+        return view("Plazas.frm",compact('plazas','plaza','accion','txtbtn','des','iddes'));
     }
 
     /**

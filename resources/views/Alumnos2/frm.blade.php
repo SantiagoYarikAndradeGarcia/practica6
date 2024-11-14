@@ -24,7 +24,7 @@
 
   @elseif ($accion == 'E')
   <h1>EDITANDO FRM</h1> 
-  <form action="{{route('Alumnos2.update',$alumno->noctrl)}}" method="POST">
+  <form action="{{route('Alumnos2.update',$alumno->id)}}" method="POST">
 
     @elseif ($accion=='D')
     <h1>PARA ELIMINAR</h1> 
@@ -33,7 +33,18 @@
   @endif
   
   @csrf
-    
+    @if ($accion == 'E')
+      <div class="row mb-3">
+        <label for="id" class="col-sm-3 col-form-label">ID</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="id" name="id" value="{{old('id',$alumno->id)}}" {{$des}} {{$iddes}}>
+          @error('id')
+          <p class="text-danger">Error en: {{$message}}</p>
+          @enderror
+        </div>
+      </div>
+    @endif
+
     <div class="row mb-3">
       <label for="noctrl" class="col-sm-3 col-form-label">Número de Control</label>
       <div class="col-sm-9">
@@ -98,12 +109,22 @@
       </div>
 
       <div class="row mb-3">
+        <label for="email" class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="email" name="email" value="{{old('email',$alumno->email)}}" {{$des}}>
+          @error('email')
+          <p class="text-danger">Error en: {{$message}}</p>
+        @enderror
+        </div>
+      </div>
+
+      <div class="row mb-3">
         <label for="carrera_id">Carrera</label>
         <select name="carrera_id" id="carrera_id" required >
             <option value="">Seleccione una Carrera</option>
             @foreach ($carreras as $carrera)
-                <option value="{{ $carrera->idCarrera }}" 
-                  {{ old('carrera_id', $alumno->carrera_id) == $carrera->idCarrera ? 'selected' : '' }}>
+                <option value="{{ $carrera->id }}" 
+                  {{ old('carrera_id', $alumno->carrera_id) == $carrera->id ? 'selected' : '' }}>
               {{ $carrera->nombreCarrera }}</option>
             @endforeach
         </select>

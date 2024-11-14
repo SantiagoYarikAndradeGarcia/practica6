@@ -11,6 +11,7 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
+                <th scope="col">Id carrera</th>
                 <th scope="col">Nombre Completo</th>
                 <th scope="col">Nombre Mediano</th>
                 <th scope="col">Nombre Corto</th>
@@ -23,14 +24,15 @@
         <tbody>
             @foreach ($carreras as $carrera)
             <tr>
-                <td scope="row"> {{ $carrera->idCarrera }}  </td>
+                <td scope="row"> {{ $carrera->id }}  </td>
+                <td>{{ $carrera->idCarrera }}  </td>
                 <td>{{ $carrera->nombreCarrera }}  </td>
                 <td>{{ $carrera->nombreMediano }}  </td>
                 <td>{{ $carrera->nombreCorto }}  </td>
                 <td>{{ $carrera->depto->nombreDepto }}  </td>
-                <td><a href="{{route('Carreras.edit',$carrera->idCarrera)}}" class="btn button btn-success">Editar</a></td>
-                <td><a href="{{route('Carreras.show',$carrera->idCarrera)}}" class="btn button btn-danger">Eliminar</a></td>
-                <td><a href="{{route('Carreras.show',$carrera->idCarrera)}}" class="btn button btn-primary">Ver</a></td>
+                <td><a href="{{route('Carreras.edit',$carrera->id)}}" class="btn button btn-success">Editar</a></td>
+                <td><a href="{{route('Carreras.show',$carrera->id)}}" class="btn button btn-danger">Eliminar</a></td>
+                <td><a href="{{route('Carreras.show',$carrera->id)}}" class="btn button btn-primary">Ver</a></td>
             </tr>
             @endforeach
         </tbody>

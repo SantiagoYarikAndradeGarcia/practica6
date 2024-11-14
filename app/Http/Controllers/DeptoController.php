@@ -12,7 +12,7 @@ class DeptoController extends Controller
     public function __construct(){
         $this->val=[
             'idDepto'    =>['required','min:2','max:2'],
-            'nombreDepto' =>['required','min:8'],
+            'nombreDepto' =>['required','min:5'],
             'nombreMediano' =>['required'],
             'nombreCorto' =>['required']
         ];
@@ -34,7 +34,8 @@ class DeptoController extends Controller
         $accion='C';
         $txtbtn='Guardar';
         $des='';
-        return view("Deptos/frm",compact("deptos",'depto',"accion",'txtbtn','des'));
+        $iddes='';
+        return view("Deptos/frm",compact("deptos",'depto',"accion",'txtbtn','des','iddes'));
     }
 
     /**
@@ -68,7 +69,8 @@ class DeptoController extends Controller
         $accion='E';
         $txtbtn='actualizar';
         $des='';
-        return view("Deptos.frm",compact('deptos','depto','accion','txtbtn','des'));
+        $iddes='disabled';
+        return view("Deptos.frm",compact('deptos','depto','accion','txtbtn','des','iddes'));
     }
 
     /**

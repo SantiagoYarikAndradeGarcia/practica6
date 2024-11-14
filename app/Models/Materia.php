@@ -11,17 +11,16 @@ class Materia extends Model
 {
     /** @use HasFactory<\Database\Factories\MateriaFactory> */
     use HasFactory;
-    protected $fillable =['idMateria','nombreMateria','nombreMediano','nombreCorto','nivel','modalidad','reticula_id'];
+    protected $fillable =['nombreMateria','nombreMediano','nombreCorto','nivel','modalidad','semestre','reticula_id'];
     protected $table = 'materias';
-    protected $primaryKey = 'idMateria'; 
-
-    public $incrementing = false;
+    // protected $primaryKey = 'idMateria'; 
+    // public $incrementing = false;
     
-    // public function horariosMateria():HasMany{
-    //     return $this->hasMany(horariosMateria::class);
+    // public function materiasAbiertas():HasMany{
+    //     return $this->hasMany(MateriaAbierta::class);
     // }
 
     public function reticula():BelongsTo{
-        return $this->belongsTo(Reticula::class, 'reticula_id', 'idReticula');
+        return $this->belongsTo(Reticula::class, 'reticula_id', 'id');
     }
 }

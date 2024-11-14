@@ -15,9 +15,9 @@
   @csrf 
   
     <div class="row mb-3">
-      <label for="idPeriodo" class="col-sm-3 col-form-label">ID</label>
+      <label for="id" class="col-sm-3 col-form-label">ID</label>
       <div class="col-sm-9">
-        <input type="text" class="form-control" id="idPeriodo" name="idPeriodo" disabled value="{{$periodo->idPeriodo}}">
+        <input type="text" class="form-control" id="id" name="id" disabled value="{{$periodo->id}}">
       </div>
     </div>
 
@@ -49,7 +49,7 @@
         </div>
       </div>
 
-    <button type="submit" class="btn btn-danger">Confirma la Eliminacion</button>
+    <button type="submit" class="btn btn-danger">Confirma la Eliminacion</button>             
     <a href="{{route('Periodos.index')}}" class="btn btn-primary">Regresar</a>
     
     

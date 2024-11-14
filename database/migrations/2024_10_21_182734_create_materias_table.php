@@ -12,15 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('materias', function (Blueprint $table) {
-            $table->string('idMateria',10)->primary();
+            $table->id();
+            // $table->string('idMateria',10)->primary();
             $table->string('nombreMateria',200)->unique();
-            $table->string('nombreMediano',25);
-            $table->string('nombreCorto',10);
+            $table->string('nombreMediano',25)->unique();
+            $table->string('nombreCorto',10)->unique();
             $table->string('nivel', 1);
             $table->string('modalidad', 1);
-            $table->string('reticula_id', 15);
+            $table->integer('semestre');
+            $table->unsignedBigInteger('reticula_id');
+            // $table->string('reticula_id', 15);
             $table->foreign('reticula_id')
-                ->references('idReticula')
+                ->references('id')
                 ->on('reticulas')
                 ->onDelete('cascade');
             $table->timestamps();

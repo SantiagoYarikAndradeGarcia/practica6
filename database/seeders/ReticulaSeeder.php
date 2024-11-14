@@ -13,7 +13,8 @@ class ReticulaSeeder extends Seeder
      */
     public function run(): void
     {
-        Reticula::factory(5)->create();
-        
+        foreach (range(1, 7) as $i) {
+            Reticula::factory()->create();
+        }        
     }
 }

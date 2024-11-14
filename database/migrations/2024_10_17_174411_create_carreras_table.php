@@ -12,22 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('carreras', function (Blueprint $table) {
-            $table->string('idCarrera',15)->primary();
+            $table->id();
+            $table->string('idCarrera',15)->unique();
+            //$table->string('idCarrera',15)->primary();
             $table->string('nombreCarrera',200)->unique();
-            $table->string('nombreMediano',50);
-            $table->string('nombreCorto',5);
-            $table->string('depto_id', 2);
+            $table->string('nombreMediano',50)->unique();
+            $table->string('nombreCorto',5)->unique();
+            $table->unsignedBigInteger('depto_id');
+            //$table->string('depto_id', 2);
             $table->foreign('depto_id')
-                ->references('idDepto')
+                ->references('id')
                 ->on('deptos')
                 ->onDelete('cascade');
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
+    
     public function down(): void
     {
         Schema::dropIfExists('carreras');

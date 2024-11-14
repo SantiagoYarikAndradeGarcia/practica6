@@ -24,7 +24,7 @@
 
   @elseif ($accion == 'E')
   <h1>EDITANDO FRM</h1> 
-  <form action="{{route('Deptos.update',$depto->idDepto)}}" method="POST">
+  <form action="{{route('Deptos.update',$depto->id)}}" method="POST">
 
     @elseif ($accion=='D')
     <h1>PARA ELIMINAR</h1> 
@@ -33,8 +33,20 @@
   @endif
   
   @csrf
+    @if ($accion == 'E')
+      <div class="row mb-3">
+        <label for="id" class="col-sm-3 col-form-label">ID</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="id" name="id" value="{{old('id',$depto->id)}}" {{$des}} {{$iddes}}>
+          @error('id')
+          <p class="text-danger">Error en: {{$message}}</p>
+          @enderror
+        </div>
+      </div>
+    @endif              
+
     <div class="row mb-3">
-      <label for="idDepto" class="col-sm-3 col-form-label">ID</label>
+      <label for="idDepto" class="col-sm-3 col-form-label">Id depto</label>
       <div class="col-sm-9">
         <input type="text" class="form-control" id="idDepto" name="idDepto" value="{{old('idDepto',$depto->idDepto)}}" {{$des}}>
         @error('idDepto')

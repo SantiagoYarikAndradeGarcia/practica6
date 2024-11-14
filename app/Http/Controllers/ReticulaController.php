@@ -12,7 +12,7 @@ class ReticulaController extends Controller
 
     public function __construct(){
         $this->val=[
-            'idReticula'    =>['required','min:15','max:15'],
+            // 'idReticula'    =>['required','min:15','max:15'],
             'descripcion'    =>['required'],
             'fechaEnVigor' =>['required'],
             'carrera_id' =>['required']
@@ -38,7 +38,8 @@ class ReticulaController extends Controller
         $accion='C';
         $txtbtn='Guardar';
         $des='';
-        return view("Reticulas/frm",compact("reticulas",'reticula',"carreras","accion",'txtbtn','des'));
+        $iddes='';
+        return view("Reticulas/frm",compact("reticulas",'reticula',"carreras","accion",'txtbtn','des','iddes'));
     }
 
     /**
@@ -74,7 +75,8 @@ class ReticulaController extends Controller
         $accion='E';
         $txtbtn='actualizar';
         $des='';
-        return view("Reticulas.frm",compact('reticulas','reticula','carreras','accion','txtbtn','des'));
+        $iddes='disabled';
+        return view("Reticulas.frm",compact('reticulas','reticula','carreras','accion','txtbtn','des','iddes'));
     }
 
     /**

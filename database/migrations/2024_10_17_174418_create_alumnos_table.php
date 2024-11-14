@@ -12,14 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('alumnos', function (Blueprint $table) {
-            $table->string('noctrl', 8)->primary();
+            $table->id();
+            $table->string('noctrl', 8)->unique();
+            // $table->string('noctrl', 8)->primary();
             $table->string("nombre", 50);
             $table->string("apellidop", 50);
             $table->string("apellidom", 50);
             $table->string("sexo", 1);
-            $table->string('carrera_id', 15);
+            $table->string("email", 200);
+            $table->unsignedBigInteger('carrera_id');
+            // $table->string('carrera_id', 15);
             $table->foreign('carrera_id')
-                ->references('idCarrera')
+                ->references('id')
                 ->on('carreras')
                 ->onDelete('cascade');
             $table->timestamps();
